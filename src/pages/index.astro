@@ -2,64 +2,45 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Navbar from '../components/Navbar.jsx';
 import FeaturedDish from '../components/FeaturedDish.jsx';
+import { SparklesCore } from '../components/ui/sparkles';
 ---
 
-<MainLayout title="Golden Plate Restaurant">
+<MainLayout title="Beyond Temptation Cafe">
   <Navbar client:load />
   <main class="pt-20">
     <!-- Hero Section -->
     <section class="bg-secondary relative h-screen flex items-center">
       <div class="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1544025162-d76694265947" 
+          src="https://images.unsplash.com/photo-1554118811-1e0d58224f24" 
           alt="Hero Background" 
           class="w-full h-full object-cover opacity-50"
         />
+        <SparklesCore
+          client:load
+          id="tsparticles"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleColor="#FFD700"
+          className="absolute inset-0 z-10"
+          particleDensity={100}
+        />
       </div>
-      <div class="relative z-10 py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+      <div class="relative z-20 py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-primary md:text-5xl lg:text-6xl font-serif">
-          Experience Fine Dining
+          Beyond Temptation
         </h1>
         <p class="mb-8 text-lg font-normal text-yellow-light lg:text-xl">
-          Savor the taste of excellence in every bite
+          Where Every Moment Becomes a Celebration
         </p>
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-          <a href="#menu" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-secondary bg-primary hover:bg-yellow-dark rounded-lg transition-colors duration-300">
+          <a href="/menu" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-secondary bg-primary hover:bg-yellow-dark rounded-lg transition-colors duration-300">
             View Menu
           </a>
-          <a href="#reserve" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-primary border-2 border-primary hover:bg-primary hover:text-secondary rounded-lg transition-colors duration-300">
-            Reserve Table
+          <a href="#book-event" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-primary border-2 border-primary hover:bg-primary hover:text-secondary rounded-lg transition-colors duration-300">
+            Book Event
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Dishes -->
-    <section class="py-16 px-4 bg-secondary" id="menu">
-      <div class="max-w-screen-xl mx-auto">
-        <h2 class="text-3xl font-bold text-primary text-center mb-12 font-serif">Featured Dishes</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <FeaturedDish 
-            client:load
-            img="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
-            title="Signature Salad"
-            description="Fresh greens with house-made dressing"
-            price="$12.99"
-          />
-          <FeaturedDish 
-            client:load
-            img="https://images.unsplash.com/photo-1560717789-0ac7c58ac90a"
-            title="Golden Steak"
-            description="Premium cut with special sauce"
-            price="$34.99"
-          />
-          <FeaturedDish 
-            client:load
-            img="https://images.unsplash.com/photo-1551024709-8f23befc6f87"
-            title="Dessert Special"
-            description="Chef's special dessert of the day"
-            price="$8.99"
-          />
         </div>
       </div>
     </section>
@@ -67,13 +48,13 @@ import FeaturedDish from '../components/FeaturedDish.jsx';
     <!-- Special Offer -->
     <section class="py-16 px-4 bg-primary">
       <div class="max-w-screen-xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-secondary mb-6 font-serif">Special Offer</h2>
+        <h2 class="text-3xl font-bold text-secondary mb-6 font-serif">Host Your Special Day</h2>
         <p class="text-secondary text-xl mb-8">
-          Join us for Happy Hour! 50% off on selected drinks
-          <br />Monday to Friday, 4PM - 7PM
+          Make your celebration memorable with us!
+          <br />Special packages available for birthdays, anniversaries, and private events
         </p>
-        <a href="#reserve" class="inline-flex justify-center items-center py-3 px-8 text-primary bg-secondary hover:bg-gray-900 rounded-lg transition-colors duration-300">
-          Book Now
+        <a href="#book-event" class="inline-flex justify-center items-center py-3 px-8 text-primary bg-secondary hover:bg-gray-900 rounded-lg transition-colors duration-300">
+          Book Your Event
         </a>
       </div>
     </section>
