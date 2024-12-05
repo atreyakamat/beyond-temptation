@@ -1,0 +1,109 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.jsx';
+import { SparklesCore } from '../components/ui/sparkles';
+---
+
+<MainLayout title="Gallery - Beyond Temptation Cafe">
+  <Navbar client:load />
+  <main class="pt-20 bg-secondary min-h-screen relative">
+    <div class="absolute inset-0 w-full h-full">
+      <SparklesCore
+        client:load
+        id="tsparticles"
+        background="transparent"
+        minSize={0.6}
+        maxSize={1.4}
+        particleColor="#FFD700"
+        particleDensity={100}
+        speed={2}
+        className="w-full h-full"
+      />
+    </div>
+
+    <!-- Ambience Section -->
+    <section class="max-w-7xl mx-auto px-4 py-8 relative">
+      <h2 class="text-4xl font-serif font-bold text-primary text-center mb-12">Cafe Ambience</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 auto-rows-[200px] gap-4">
+        <!-- Larger images spanning 2 rows -->
+        <div class="row-span-2">
+          <img 
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24" 
+            alt="Cafe Interior 1"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="col-span-2">
+          <img 
+            src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8" 
+            alt="Cafe Seating Area"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div>
+          <img 
+            src="https://images.unsplash.com/photo-1600093463592-2e8d28d7f1f6" 
+            alt="Coffee Bar"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="row-span-2 col-span-2">
+          <img 
+            src="https://images.unsplash.com/photo-1521017432531-fbd92d768814" 
+            alt="Cafe Interior 2"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Items Section -->
+    <section class="max-w-7xl mx-auto px-4 py-16 relative">
+      <h2 class="text-4xl font-serif font-bold text-primary text-center mb-12">Our Signature Dishes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-[250px] gap-4">
+        <div class="row-span-2">
+          <img 
+            src="https://images.unsplash.com/photo-1565958011703-44f9829ba187" 
+            alt="Signature Dish 1"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="col-span-2 row-span-2">
+          <img 
+            src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543" 
+            alt="Signature Dish 2"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div>
+          <img 
+            src="https://images.unsplash.com/photo-1484723091739-30a097e8f929" 
+            alt="Signature Dish 3"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="col-span-2">
+          <img 
+            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601" 
+            alt="Signature Dish 4"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="row-span-2">
+          <img 
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" 
+            alt="Signature Dish 5"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div>
+          <img 
+            src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe" 
+            alt="Signature Dish 6"
+            class="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
