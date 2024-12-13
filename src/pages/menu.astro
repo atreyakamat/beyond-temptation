@@ -1,99 +1,401 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+
+
+
 import Navbar from '../components/Navbar.jsx';
+
+
+
 import { SparklesCore } from '../components/ui/sparkles';
-import FeaturedDish from '../components/FeaturedDish';
+
+
+
+import FeaturedDish from '../components/FeaturedDish'; 
+
+
+
+import img1 from '../images/menu1.png';
+
+
+
+import img2 from '../images/menu2.png';
+
+
+
 ---
 
+
+
+
+
+
+
 <MainLayout title="Menu - Beyond Temptation Cafe">
+
+
+
   <Navbar client:load />
+
+
+
   <main class="pt-20 bg-secondary min-h-screen relative">
+
+
+
     <div class="absolute inset-0 w-full h-full">
+
+
+
       <SparklesCore
+
+
+
         client:load
+
+
+
         id="tsparticles"
+
+
+
         background="transparent"
+
+
+
         minSize={0.6}
+
+
+
         maxSize={1.4}
+
+
+
         particleColor="#FFD700"
+
+
+
         particleDensity={100}
+
+
+
         speed={2}
+
+
+
         className="w-full h-full"
+
+
+
       />
+
+
+
     </div>
+
+
+
     <!-- Title -->
+
+
+
     <div class="text-center py-8 relative">
+
+
+
       <h1 class="text-5xl font-serif font-bold text-primary">
+
+
+
         Our Menu
+
+
+
       </h1>
+
+
+
     </div>
+
+
+
+
+
+
 
     <!-- Menu Images -->
+
+
+
     <div class="max-w-7xl mx-auto px-4 py-8 relative">
+
+
+
       <div class="grid md:grid-cols-2 gap-4">
+
+
+
         <img 
-          src="https://images.unsplash.com/photo-1544273677-c433136021d4" 
+
+
+
+          src= {img1.src}
+
+
+
           alt="Menu Page 1" 
-          class="w-full h-[600px] object-cover rounded-lg shadow-xl hover:scale-105 transition-transform duration-300"
-        />
-        <img 
-          src="https://images.unsplash.com/photo-1544273677-c433136021d4" 
-          alt="Menu Page 2" 
+
+
+
           class="w-full aspect-video object-cover rounded-lg shadow-xl hover:scale-105 transition-transform duration-300"
+
+
+
         />
+
+
+
+        <img 
+
+
+
+          src={img2.src} 
+
+
+
+          alt="Menu Page 2" 
+
+
+
+          class="w-full aspect-video object-cover rounded-lg shadow-xl hover:scale-105 transition-transform duration-300"
+
+
+
+        />
+
+
+
       </div>
+
+
+
     </div>
 
+
+
+
+
+
+
     <!-- Featured Dishes Grid -->
+
+
+
     <section class="max-w-7xl mx-auto px-4 py-16 relative">
+
+
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+
         {[
+
+
+
           {
+
+
+
             img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+
+
+
             title: "Grilled Salmon",
+
+
+
             description: "Fresh Atlantic salmon grilled to perfection with herbs",
+
+
+
             price: "$24.99"
+
+
+
           },
+
+
+
           {
+
+
+
             img: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601",
+
+
+
             title: "Pasta Primavera",
+
+
+
             description: "Fresh seasonal vegetables with al dente pasta",
+
+
+
             price: "$18.99"
+
+
+
           },
+
+
+
           {
+
+
+
             img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+
+
+
             title: "Garden Salad",
+
+
+
             description: "Crisp mixed greens with house-made vinaigrette",
+
+
+
             price: "$12.99"
+
+
+
           },
+
+
+
           {
+
+
+
             img: "https://images.unsplash.com/photo-1560611588-a5e05839959c",
+
+
+
             title: "Wagyu Steak",
+
+
+
             description: "Premium grade Wagyu beef with truffle butter",
+
+
+
             price: "$49.99"
+
+
+
           },
+
+
+
           {
+
+
+
             img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+
+
+
             title: "Margherita Pizza",
+
+
+
             description: "Classic Italian pizza with fresh basil and mozzarella",
+
+
+
             price: "$16.99"
+
+
+
           },
+
+
+
           {
+
+
+
             img: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8",
+
+
+
             title: "Sushi Platter",
+
+
+
             description: "Assorted fresh sushi with wasabi and pickled ginger",
+
+
+
             price: "$32.99"
+
+
+
           }
+
+
+
         ].map((dish) => (
+
+
+
           <FeaturedDish 
+
+
+
             client:visible
+
+
+
             img={dish.img}
+
+
+
             title={dish.title}
+
+
+
             description={dish.description}
+
+
+
             price={dish.price}
+
+
+
           />
+
+
+
         ))}
+
+
+
       </div>
+
+
+
     </section>
+
+
+
   </main>
+
+
+
 </MainLayout>
+
+
+
