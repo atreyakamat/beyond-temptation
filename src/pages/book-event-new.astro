@@ -222,28 +222,32 @@ import Navbar from '../components/Navbar.jsx';
   // Form submission handler
   document.getElementById('booking-form')?.addEventListener('submit', function(e) {
     e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
+    
+    const formData = new FormData(this);
     const name = formData.get('name');
     const email = formData.get('email');
     const eventType = formData.get('eventType');
     const message = formData.get('message');
+    
     // Create WhatsApp message
     const whatsappMessage = `Hi! I'd like to book a spot at Beyond Temptation Café.
-
+    
 Name: ${name}
 Email: ${email}
 Event Type: ${eventType}
 Message: ${message}
 
 Please let me know about availability and next steps. Thank you!`;
+    
     // Open WhatsApp with the message
     const encodedMessage = encodeURIComponent(whatsappMessage);
     const whatsappURL = `https://wa.me/919876543210?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
+    
     // Optional: Show confirmation message
     alert('Your booking request has been sent via WhatsApp. We\'ll get back to you soon!');
+    
     // Reset form
-    form.reset();
+    this.reset();
   });
 </script>

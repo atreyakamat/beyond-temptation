@@ -1,62 +1,240 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Navbar from '../components/Navbar.jsx';
-import FeaturedDish from '../components/FeaturedDish.jsx';
-import { SparklesCore } from '../components/ui/sparkles';
 ---
 
-<MainLayout title="Beyond Temptation Cafe">
+<MainLayout title="Beyond Temptation Café - More than coffee. It's a vibe.">
   <Navbar client:load />
-  <main class="pt-20">
-    <!-- Hero Section -->
-    <section class="bg-secondary relative h-screen flex items-center">
-      <div class="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1554118811-1e0d58224f24" 
-          alt="Hero Background" 
-          class="w-full h-full object-cover opacity-50"
-        />
-        <SparklesCore
-          client:load
-          id="tsparticles"
-          background="transparent"
-          minSize={0.6}
-          maxSize={1.4}
-          particleColor="#FFD700"
-          className="absolute inset-0 z-10"
-          particleDensity={100}
-        />
-      </div>
-      <div class="relative z-20 py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-primary md:text-5xl lg:text-6xl font-serif">
-          Beyond Temptation
-        </h1>
-        <p class="mb-8 text-lg font-normal text-yellow-light lg:text-xl">
-          Where Every Moment Becomes a Celebration
-        </p>
-        <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-          <a href="/menu" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-secondary bg-primary hover:bg-yellow-dark rounded-lg transition-colors duration-300">
-            View Menu
-          </a>
-          <a href="#book-event" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-primary border-2 border-primary hover:bg-primary hover:text-secondary rounded-lg transition-colors duration-300">
-            Book Event
-          </a>
+  
+  <div class="relative flex size-full min-h-screen flex-col bg-white">
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="px-4 md:px-40 flex flex-1 justify-center py-5 pt-20">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          
+          <!-- Hero Section -->
+          <div class="@container">
+            <div class="@[480px]:p-4">
+              <div
+                class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
+                style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80");'
+              >
+                <h1
+                  class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] text-center"
+                >
+                  More than coffee. It's a vibe.
+                </h1>
+                <div class="flex-wrap gap-3 flex justify-center">
+                  <a
+                    href="/menu"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-accent text-primary text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-accent/90 transition-colors"
+                  >
+                    <span class="truncate">View Our Menu</span>
+                  </a>
+                  <a
+                    href="/location"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-accent-light text-primary text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-accent-light/90 transition-colors"
+                  >
+                    <span class="truncate">Visit Us</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Peek: Our Space -->
+          <h2 class="text-primary text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Quick Peek: Our Space</h2>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            <div class="flex flex-col gap-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                style='background-image: url("https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=400&q=80");'
+              ></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                style='background-image: url("https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=400&q=80");'
+              ></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                style='background-image: url("https://images.unsplash.com/photo-1600093463592-2e8d28d7f1f6?auto=format&fit=crop&w=400&q=80");'
+              ></div>
+            </div>
+          </div>
+
+          <!-- Customer Faves -->
+          <h2 class="text-primary text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Customer Faves</h2>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                style='background-image: url("https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=400&q=80");'
+              ></div>
+              <div>
+                <p class="text-primary text-base font-medium leading-normal">Signature Latte</p>
+                <p class="text-accent-dark text-sm font-normal leading-normal">Espresso with a hint of vanilla and caramel</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                style='background-image: url("https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=400&q=80");'
+              ></div>
+              <div>
+                <p class="text-primary text-base font-medium leading-normal">Grilled Sandwich</p>
+                <p class="text-accent-dark text-sm font-normal leading-normal">Fresh vegetables and melted cheese on artisan bread</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                style='background-image: url("https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&w=400&q=80");'
+              ></div>
+              <div>
+                <p class="text-primary text-base font-medium leading-normal">Chocolate Cake</p>
+                <p class="text-accent-dark text-sm font-normal leading-normal">Rich and moist chocolate delight</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- What's Happening Here -->
+          <h2 class="text-primary text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">What's Happening Here</h2>
+          <div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div class="flex items-stretch p-4 gap-3">
+              <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+                  style='background-image: url("https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=400&q=80");'
+                ></div>
+                <div>
+                  <p class="text-primary text-base font-medium leading-normal">Reel Contest</p>
+                  <p class="text-accent-dark text-sm font-normal leading-normal">Share your best cafe moments and win prizes!</p>
+                </div>
+              </div>
+              <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+                  style='background-image: url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=400&q=80");'
+                ></div>
+                <div>
+                  <p class="text-primary text-base font-medium leading-normal">Live Music Night</p>
+                  <p class="text-accent-dark text-sm font-normal leading-normal">Enjoy live music every Friday night</p>
+                </div>
+              </div>
+              <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+                  style='background-image: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80");'
+                ></div>
+                <div>
+                  <p class="text-primary text-base font-medium leading-normal">Study Jam Saturdays</p>
+                  <p class="text-accent-dark text-sm font-normal leading-normal">Group study sessions with free WiFi</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini CTA Grid -->
+          <div class="@container">
+            <div class="gap-2 px-4 grid-cols-[repeat(auto-fit,minmax(80px,_1fr))] grid">
+              <a href="/menu" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center hover:bg-accent-light/30 transition-colors rounded-lg">
+                <div class="rounded-full bg-accent-light p-2.5">
+                  <div class="text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-primary text-sm font-medium leading-normal">Menu</p>
+              </a>
+              <a href="/gallery" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center hover:bg-accent-light/30 transition-colors rounded-lg">
+                <div class="rounded-full bg-accent-light p-2.5">
+                  <div class="text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-primary text-sm font-medium leading-normal">Gallery</p>
+              </a>
+              <a href="/book-event" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center hover:bg-accent-light/30 transition-colors rounded-lg">
+                <div class="rounded-full bg-accent-light p-2.5">
+                  <div class="text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136A23.76,23.76,0,0,1,171.16,150.45Z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-primary text-sm font-medium leading-normal">Events</p>
+              </a>
+              <a href="/book-event" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center hover:bg-accent-light/30 transition-colors rounded-lg">
+                <div class="rounded-full bg-accent-light p-2.5">
+                  <div class="text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path d="M184,32H72A16,16,0,0,0,56,48V224a8,8,0,0,0,12.24,6.78L128,193.43l59.77,37.35A8,8,0,0,0,200,224V48A16,16,0,0,0,184,32Zm0,16V161.57l-51.77-32.35a8,8,0,0,0-8.48,0L72,161.56V48ZM132.23,177.22a8,8,0,0,0-8.48,0L72,209.57V180.43l56-35,56,35v29.14Z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-primary text-sm font-medium leading-normal">Book a Table</p>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- Special Offer -->
-    <section class="py-16 px-4 bg-primary">
-      <div class="max-w-screen-xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-secondary mb-6 font-serif">Host Your Special Day</h2>
-        <p class="text-secondary text-xl mb-8">
-          Make your celebration memorable with us!
-          <br />Special packages available for birthdays, anniversaries, and private events
-        </p>
-        <a href="#book-event" class="inline-flex justify-center items-center py-3 px-8 text-primary bg-secondary hover:bg-gray-900 rounded-lg transition-colors duration-300">
-          Book Your Event
-        </a>
-      </div>
-    </section>
-  </main>
+      <!-- Footer -->
+      <footer class="flex justify-center">
+        <div class="flex max-w-[960px] flex-1 flex-col">
+          <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+            <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+              <a class="text-accent-dark text-base font-normal leading-normal min-w-40 hover:text-primary transition-colors" href="/">Home</a>
+              <a class="text-accent-dark text-base font-normal leading-normal min-w-40 hover:text-primary transition-colors" href="/menu">Menu</a>
+              <a class="text-accent-dark text-base font-normal leading-normal min-w-40 hover:text-primary transition-colors" href="/gallery">Gallery</a>
+              <a class="text-accent-dark text-base font-normal leading-normal min-w-40 hover:text-primary transition-colors" href="/book-event">Events</a>
+              <a class="text-accent-dark text-base font-normal leading-normal min-w-40 hover:text-primary transition-colors" href="/location">Visit</a>
+              <a class="text-accent-dark text-base font-normal leading-normal min-w-40 hover:text-primary transition-colors" href="/contact">Contact</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="#" class="text-accent-dark hover:text-primary transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+                </svg>
+              </a>
+              <a href="#" class="text-accent-dark hover:text-primary transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path>
+                </svg>
+              </a>
+            </div>
+            <p class="text-accent-dark text-base font-normal leading-normal">© 2025 Beyond Temptation Cafe. All rights reserved.</p>
+          </footer>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/919876543210" 
+     class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 z-50"
+     target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+      <path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"></path>
+    </svg>
+  </a>
 </MainLayout>
+
+<script>
+  // Add Google Fonts
+  const link = document.createElement('link');
+  link.rel = 'preconnect';
+  link.href = 'https://fonts.gstatic.com';
+  link.crossOrigin = 'anonymous';
+  document.head.appendChild(link);
+
+  const fontLink = document.createElement('link');
+  fontLink.rel = 'stylesheet';
+  fontLink.href = 'https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;700;800';
+  document.head.appendChild(fontLink);
+</script>

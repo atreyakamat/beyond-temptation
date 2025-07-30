@@ -1,0 +1,168 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.jsx';
+import { SparklesCore } from '../components/ui/sparkles';
+---
+
+<MainLayout title="About Us - Beyond Temptation Café">
+  <Navbar client:load />
+  <main class="pt-20 bg-secondary min-h-screen">
+    <div class="absolute inset-0 w-full h-full">
+      <SparklesCore
+        client:load
+        id="about-sparkles"
+        background="transparent"
+        minSize={0.6}
+        maxSize={1.4}
+        particleColor="#d4a574"
+        particleDensity={50}
+        speed={1}
+        className="w-full h-full"
+      />
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 py-16">
+      <!-- Page Title -->
+      <div class="text-center mb-16">
+        <h1 class="text-5xl font-serif font-bold text-primary mb-4">About Beyond Temptation</h1>
+        <div class="w-16 h-1 bg-gradient-to-r from-accent to-accent-dark mx-auto"></div>
+        <p class="text-xl text-text-light mt-6 max-w-3xl mx-auto">
+          More than coffee. It's a vibe. We're creating memorable experiences one cup at a time.
+        </p>
+      </div>
+
+      <!-- Story Section -->
+      <section class="mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Our Story</h2>
+            <div class="space-y-4 text-text-light">
+              <p>
+                Beyond Temptation started with a simple idea: create a space where coffee meets community, 
+                where every corner tells a story, and where every visit feels like coming home.
+              </p>
+              <p>
+                Founded in the heart of the city, we've grown from a small coffee corner to a vibrant 
+                hub for creators, students, professionals, and anyone seeking a cozy escape from the 
+                everyday hustle.
+              </p>
+              <p>
+                Our name reflects our mission - to go beyond the ordinary coffee experience and create 
+                something truly tempting for all your senses.
+              </p>
+            </div>
+          </div>
+          <div class="h-96 bg-gradient-to-br from-accent to-accent-dark rounded-2xl shadow-lg flex items-center justify-center text-white text-6xl">
+            ☕ 🏠 ✨
+          </div>
+        </div>
+      </section>
+
+      <!-- Values Section -->
+      <section class="mb-20">
+        <h2 class="text-4xl font-serif font-bold text-center text-primary mb-12">What We Believe In</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="text-6xl text-accent mb-4">🌟</div>
+            <h3 class="text-xl font-bold text-primary mb-4">Quality First</h3>
+            <p class="text-text-light">
+              Every cup is crafted with premium beans and attention to detail. 
+              We source the best ingredients for an exceptional experience.
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="text-6xl text-accent mb-4">🤝</div>
+            <h3 class="text-xl font-bold text-primary mb-4">Community Focus</h3>
+            <p class="text-text-light">
+              We're more than a café - we're a gathering place for creators, 
+              students, and professionals to connect and collaborate.
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="text-6xl text-accent mb-4">💡</div>
+            <h3 class="text-xl font-bold text-primary mb-4">Creative Space</h3>
+            <p class="text-text-light">
+              From reel contests to live music nights, we foster creativity 
+              and provide a platform for artistic expression.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="mb-20">
+        <div class="bg-white rounded-2xl p-12 shadow-lg text-center">
+          <h2 class="text-4xl font-serif font-bold text-primary mb-8">The Beyond Temptation Experience</h2>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+              <div class="text-4xl text-accent">☕</div>
+              <h3 class="font-bold text-primary">Premium Coffee</h3>
+              <p class="text-text-light text-sm">Expertly brewed using the finest beans</p>
+            </div>
+            <div class="space-y-3">
+              <div class="text-4xl text-accent">🏠</div>
+              <h3 class="font-bold text-primary">Cozy Ambiance</h3>
+              <p class="text-text-light text-sm">Warm, inviting space perfect for any occasion</p>
+            </div>
+            <div class="space-y-3">
+              <div class="text-4xl text-accent">📚</div>
+              <h3 class="font-bold text-primary">Study Friendly</h3>
+              <p class="text-text-light text-sm">Free WiFi and quiet corners for productivity</p>
+            </div>
+            <div class="space-y-3">
+              <div class="text-4xl text-accent">🎉</div>
+              <h3 class="font-bold text-primary">Event Hosting</h3>
+              <p class="text-text-light text-sm">Perfect venue for celebrations and gatherings</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section>
+        <h2 class="text-4xl font-serif font-bold text-center text-primary mb-12">Meet Our Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+            <div class="w-24 h-24 bg-gradient-to-br from-accent to-accent-dark rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl">
+              👨‍💼
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Café Manager</h3>
+            <p class="text-text-light">
+              Ensuring every visit is memorable and every cup is perfect.
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+            <div class="w-24 h-24 bg-gradient-to-br from-accent to-accent-dark rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl">
+              👨‍🍳
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Head Barista</h3>
+            <p class="text-text-light">
+              Master of coffee craft, creating beautiful latte art and perfect brews.
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+            <div class="w-24 h-24 bg-gradient-to-br from-accent to-accent-dark rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl">
+              🎨
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Events Coordinator</h3>
+            <p class="text-text-light">
+              Making your celebrations special with personalized event planning.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</MainLayout>
+
+<script>
+  // Add Font Awesome
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css';
+  document.head.appendChild(link);
+</script>
