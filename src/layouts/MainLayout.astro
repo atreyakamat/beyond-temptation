@@ -17,45 +17,9 @@ const { title, description = "Beyond Temptation Café - More than coffee. It's a
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet">
   </head>
-  <body class="min-h-screen bg-secondary font-serif">
+  <body class="min-h-screen bg-secondary font-sans text-primary">
     <slot />
-    
-    <!-- Global styles -->
-    <style is:global>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      html {
-        scroll-behavior: smooth;
-        font-family: Georgia, serif;
-      }
-
-      body {
-        line-height: 1.6;
-        color: #2c1810;
-        background-color: #faf8f5;
-      }
-
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #d4a574;
-        border-radius: 4px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: #b8956a;
-      }
-    </style>
+    <!-- Custom scrollbar and global styles are now handled by global.css and Tailwind -->
   </body>
 </html> 
