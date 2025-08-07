@@ -2,6 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Navbar from '../components/Navbar.jsx';
 import { SparklesCore } from '../components/ui/sparkles';
+import Card from '../components/Card.jsx';
 ---
 
 <MainLayout title="Contact Us - Beyond Temptation Café">
@@ -28,50 +29,29 @@ import { SparklesCore } from '../components/ui/sparkles';
         <div class="w-16 h-1 bg-gradient-to-r from-accent to-accent-dark mx-auto"></div>
       </div>
 
-      <!-- Contact Info Cards -->
+      <!-- Contact Info Cards (Animated React) -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="text-6xl text-green-500 mb-4">
-            <i class="fab fa-whatsapp"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-primary mb-4">WhatsApp</h3>
-          <a 
-            href="https://wa.me/919876543210" 
-            target="_blank"
-            class="text-accent hover:text-accent-dark font-medium text-lg transition-colors"
-          >
-            +91 98765 43210
-          </a>
-          <p class="text-text-light mt-2">Quick messages & orders</p>
-        </div>
-        
-        <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="text-6xl text-accent mb-4">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-primary mb-4">Email</h3>
-          <a 
-            href="mailto:hello@beyondtemptation.com"
-            class="text-accent hover:text-accent-dark font-medium text-lg transition-colors"
-          >
-            hello@beyondtemptation.com
-          </a>
-          <p class="text-text-light mt-2">General inquiries</p>
-        </div>
-        
-        <div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="text-6xl text-accent mb-4">
-            <i class="fas fa-phone"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-primary mb-4">Phone</h3>
-          <a 
-            href="tel:+919876543210"
-            class="text-accent hover:text-accent-dark font-medium text-lg transition-colors"
-          >
-            +91 98765 43210
-          </a>
-          <p class="text-text-light mt-2">Call us directly</p>
-        </div>
+        <Card
+          client:load
+          title="WhatsApp"
+          body="Quick messages & orders"
+          href="https://wa.me/919876543210"
+          img="/images/whatsapp-icon.png"
+        />
+        <Card
+          client:load
+          title="Email"
+          body="General inquiries"
+          href="mailto:hello@beyondtemptation.com"
+          img="/images/email-icon.png"
+        />
+        <Card
+          client:load
+          title="Phone"
+          body="Call us directly"
+          href="tel:+919876543210"
+          img="/images/phone-icon.png"
+        />
       </div>
 
       <!-- Contact Form -->

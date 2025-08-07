@@ -1,0 +1,24 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import EnhancedNavbar from '../components/EnhancedNavbar.jsx';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.jsx';
+import EventsCTA from '../components/EventsCTA.jsx';
+import ReservationForm from '../components/ReservationForm.jsx';
+import EventsTimeline from '../components/EventsTimeline.jsx';
+import EventsGallery from '../components/EventsGallery.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<MainLayout title="Events - Beyond Temptation Café">
+  <EnhancedNavbar client:load />
+  <FloatingWhatsApp client:load />
+  
+  <main class="pt-20 bg-secondary min-h-screen">
+    <EventsCTA client:load />
+    <ReservationForm client:load />
+    <EventsTimeline client:load />
+    <EventsGallery client:load />
+  </main>
+  
+  <Footer client:load />
+</MainLayout>

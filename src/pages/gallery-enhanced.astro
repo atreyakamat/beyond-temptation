@@ -1,0 +1,28 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import EnhancedNavbar from '../components/EnhancedNavbar.jsx';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.jsx';
+import GalleryFilter from '../components/GalleryFilter.jsx';
+import GalleryMasonry from '../components/GalleryMasonry.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<MainLayout title="Gallery - Beyond Temptation Café">
+  <EnhancedNavbar client:load />
+  <FloatingWhatsApp client:load />
+  
+  <main class="pt-20 bg-secondary min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl font-bold text-black mb-4">Gallery</h1>
+        <div class="w-16 h-1 bg-gradient-to-r from-yellow to-yellow/60 mx-auto mb-4"></div>
+        <p class="text-lg text-gray-600">Moments that capture our vibe</p>
+      </div>
+
+      <GalleryFilter client:load />
+      <GalleryMasonry client:load />
+    </div>
+  </main>
+  
+  <Footer client:load />
+</MainLayout>

@@ -4,13 +4,15 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				// Café color scheme - Updated to match the new design
-				primary: '#171412', // Dark text color
+				// Café color scheme - Yellow & Black Theme
+				primary: '#000000', // Pure black
 				secondary: '#ffffff', // White background
-				accent: '#edd5c4', // Cream/beige accent
-				'accent-light': '#f4f2f1', // Light cream
-				'accent-dark': '#827368', // Muted brown
-				'text-light': '#827368', // Muted text color
+				accent: '#FFD700', // Gold/Yellow accent
+				'accent-light': '#FFF4B7', // Light yellow
+				'accent-dark': '#B8860B', // Dark golden rod
+				'text-light': '#666666', // Light gray text
+				'yellow': '#FFD700',
+				'black': '#000000',
 			},
 			fontFamily: {
 				sans: ['"Plus Jakarta Sans"', '"Noto Sans"', 'sans-serif'],

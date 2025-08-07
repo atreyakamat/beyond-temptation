@@ -1,0 +1,26 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import EnhancedNavbar from '../components/EnhancedNavbar.jsx';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.jsx';
+import HeroSection from '../components/HeroSection.jsx';
+import VibeGallery from '../components/VibeGallery.jsx';
+import BestsellersPreview from '../components/BestsellersPreview.jsx';
+import EventsHighlight from '../components/EventsHighlight.jsx';
+import QuickActionBar from '../components/QuickActionBar.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<MainLayout title="Beyond Temptation Café - More than coffee. It's a vibe.">
+  <EnhancedNavbar client:load />
+  <FloatingWhatsApp client:load />
+  
+  <main class="bg-secondary">
+    <HeroSection client:load />
+    <VibeGallery client:load />
+    <BestsellersPreview client:load />
+    <EventsHighlight client:load />
+    <QuickActionBar client:load />
+  </main>
+  
+  <Footer client:load />
+</MainLayout>
