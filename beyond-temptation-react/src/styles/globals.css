@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Signature Yellow & Black Theme */
+    --background: 0 0% 2%; /* #050505 - Almost pure black */
+    --foreground: 45 20% 98%; /* Warm White */
+    
+    --card: 0 0% 4%;
+    --card-foreground: 45 20% 98%;
+    
+    --popover: 0 0% 4%;
+    --popover-foreground: 45 20% 98%;
+    
+    /* The Signature Yellow */
+    --primary: 48 100% 50%; /* #FFD000 - Electric Amber/Yellow */
+    --primary-foreground: 0 0% 0%; /* Black text on yellow */
+    
+    --secondary: 0 0% 9%;
+    --secondary-foreground: 45 20% 98%;
+    
+    --muted: 0 0% 9%;
+    --muted-foreground: 0 0% 60%;
+    
+    --accent: 0 0% 9%;
+    --accent-foreground: 45 20% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 45 20% 98%;
+    
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 48 100% 50%;
+    
+    /* Magic UI Rainbow Colors */
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Subtle noise texture for premium feel */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
