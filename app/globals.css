@@ -1,26 +1,39 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: radial-gradient(circle at center, #4a2c1d, #1b0f08);
+  }
+
+  body {
+    background: var(--background);
+    color: white;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+  }
+
+  /* Cinematic Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
+
+  /* Selection Color */
+  ::selection {
+    background: #FFC107;
+    /* Amber */
+    color: white;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Utilities for scroll blocking or other needs */
+.no-scroll {
+  overflow: hidden;
 }
