@@ -40,10 +40,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        brand: {
+          cheese: "#F4A261",
+          fry: "#E9C46A",
+          chocolate: "#8D6E63",
+          strawberry: "#E76F51",
+        },
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        serif: ["Playfair Display", "serif"], // Ensure you import this font in index.html or CSS
+        sans: ["Outfit", "sans-serif"],
       },
       animation: {
         rainbow: "rainbow var(--speed, 2s) infinite linear",
