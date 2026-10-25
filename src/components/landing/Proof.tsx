@@ -32,11 +32,12 @@ export default function Proof() {
 
 function CountUp({ value }: { value: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-20%" });
+  const inView = useInView(ref, { once: true, amount: 0.4 });
   const reduce = useReducedMotion();
   useEffect(() => {
     if (!inView || !ref.current) return;
     const target = parseFloat(value);
+    ref.current.textContent = "0.0";
     if (reduce || Number.isNaN(target)) {
       ref.current.textContent = value;
       return;
@@ -52,7 +53,7 @@ function CountUp({ value }: { value: string }) {
   }, [inView, value, reduce]);
   return (
     <span ref={ref} className="font-display text-5xl font-extrabold leading-none tabular-nums">
-      0.0
+      {value}
     </span>
   );
 }

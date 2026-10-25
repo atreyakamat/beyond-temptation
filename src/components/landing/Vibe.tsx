@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { RevealLines } from "./motion";
+import Photo from "./Photo";
 import { links, site, vibeTiles } from "../../data/site";
 
 export default function Vibe() {
@@ -55,10 +56,10 @@ function Tile({
         t.span === "wide" ? "col-span-2" : t.span === "tall" ? "row-span-2" : ""
       }`}
     >
-      <motion.img
-        src={t.src}
+      <Photo
+        src={`/photos/vibe-${i + 1}.jpg`}
+        fallback={t.src}
         alt={t.alt}
-        loading="lazy"
         style={{ y }}
         className="h-[130%] w-full -translate-y-[12%] object-cover grayscale-[30%] will-change-transform transition-[filter,transform] duration-700 group-hover:grayscale-0"
       />

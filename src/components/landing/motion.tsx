@@ -52,22 +52,29 @@ export function RevealLines({
   className?: string;
   as?: "h1" | "h2" | "p";
 }) {
+  const MTag = motion[Tag];
   return (
-    <Tag className={className}>
+    <MTag
+      className={className}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ staggerChildren: 0.09 }}
+    >
       {lines.map((l, i) => (
         <span key={i} className="block overflow-hidden pb-[0.08em]">
           <motion.span
-            initial={{ y: "105%", rotate: 3 }}
-            whileInView={{ y: 0, rotate: 0 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ duration: 0.8, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
+            variants={{
+              hidden: { y: "105%", rotate: 3 },
+              show: { y: 0, rotate: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+            }}
             className="block origin-left will-change-transform"
           >
             {l}
           </motion.span>
         </span>
       ))}
-    </Tag>
+    </MTag>
   );
 }
 
