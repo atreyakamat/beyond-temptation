@@ -1,0 +1,53 @@
+---
+import { links, site } from "../../data/site";
+---
+
+<section id="visit" class="bg-paper py-20 text-ink md:py-28">
+  <div class="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2 md:px-10">
+    <div class="flex flex-col justify-between gap-10">
+      <div>
+        <h2 class="font-display text-display-lg">Find us<br />before the table's gone.</h2>
+        <address class="mt-8 not-italic">
+          <p class="font-display text-2xl font-bold">{site.address.line1}</p>
+          <p class="text-xl text-smoke">{site.address.line2}</p>
+        </address>
+
+        <dl class="mt-8 divide-y-2 divide-ink border-y-2 border-ink">
+          {site.hours.map((h) => (
+            <div class="flex items-center justify-between py-3 font-display text-lg">
+              <dt class="font-bold">{h.days}</dt>
+              <dd>{h.time}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <a
+          href={links.maps}
+          target="_blank"
+          rel="noopener"
+          class="rounded-full bg-ink px-6 py-4 font-display text-lg font-bold text-yellow shadow-hard-yellow transition-transform hover:-translate-y-0.5"
+        >
+          Get directions
+        </a>
+        <a
+          href={links.tel}
+          class="rounded-full border-2 border-ink px-6 py-4 font-display text-lg font-bold transition-colors hover:bg-ink hover:text-yellow"
+        >
+          Call {site.phoneDisplay}
+        </a>
+      </div>
+    </div>
+
+    <div class="relative min-h-[360px] overflow-hidden rounded-2xl border-2 border-ink shadow-hard">
+      <iframe
+        title="Map to Beyond Temptation, Mapusa"
+        src={links.mapsEmbed}
+        class="absolute inset-0 h-full w-full"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
