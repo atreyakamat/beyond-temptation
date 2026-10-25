@@ -139,5 +139,5 @@ export const reviews = [
 // Instagram reels to feature. Paste full reel/post URLs (collabs included) — the
 // section renders Instagram's own embed for each. Empty list = "tag us" tiles.
 export const reels: string[] = [
-  // "https://www.instagram.com/reel/XXXXXXXXXXX/",
+  "https://www.instagram.com/reel/C5N7uSOyagy/",
 ];
