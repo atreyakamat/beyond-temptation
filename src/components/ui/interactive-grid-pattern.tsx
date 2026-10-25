@@ -32,8 +32,8 @@ export default function InteractiveGridPattern({
   const [squares, setSquares] = useState<Array<{ id: number; pos: [number, number] }>>([]);
 
   const getPos = () => [
-    Math.floor(Math.random() * (props.width || 100) / width),
-    Math.floor(Math.random() * (props.height || 100) / height),
+    Math.floor((Math.random() * 100) / width),
+    Math.floor((Math.random() * 100) / height),
   ] as [number, number];
 
   useEffect(() => {
