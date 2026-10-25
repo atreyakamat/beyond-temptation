@@ -135,3 +135,9 @@ export const reviews = [
   { text: "Cozy and peaceful, hidden away from the hustle-bustle of Mapusa town. Courteous servers, served with a smile. The café was packed.", who: "Google review" },
   { text: "Tasty bites. Chicken burger and chicken sandwich were good. Ample seating, you can go in a group of 10 too. Reasonable prices. Will come again.", who: "Google review" },
 ] as const;
+
+// Instagram reels to feature. Paste full reel/post URLs (collabs included) — the
+// section renders Instagram's own embed for each. Empty list = "tag us" tiles.
+export const reels: string[] = [
+  // "https://www.instagram.com/reel/XXXXXXXXXXX/",
+];
