@@ -1,0 +1,48 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Nav from "../components/landing/Nav";
+import EventBooking from "../components/landing/EventBooking";
+import Footer from "../components/landing/Footer.astro";
+import MobileBar from "../components/landing/MobileBar";
+import SmoothScroll from "../components/landing/SmoothScroll";
+import { RevealLines } from "../components/landing/motion";
+import { site, links } from "../data/site";
+
+const perks = [
+  { t: "Groups of 10, no problem", d: "Ample seating. Regulars bring the whole class." },
+  { t: "Birthdays done right", d: "Bring the cake, we bring the sizzler brownies and the shakes." },
+  { t: "Budget-friendly", d: "Around ₹400 for two. Feed the group without the drama." },
+  { t: "Mon–Sat, 10 to 9", d: "Pick an evening slot for the full vibe. Closed Sundays." },
+];
+---
+
+<MainLayout title={`Birthdays & events — ${site.name}, Mapusa`} description="Book a table for birthdays and get-togethers at Beyond Temptation, Mapusa. Groups of 10 welcome." dark>
+  <SmoothScroll client:load />
+  <Nav client:load solid />
+  <main class="bg-cream pb-24 pt-28 text-ink md:pt-36">
+    <div class="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-[1fr_1.1fr] md:px-10">
+      <div>
+        <RevealLines client:load as="h1" lines={["Bring the", "whole gang."]} className="font-display text-display-lg" />
+        <p class="mt-4 max-w-md font-accent text-2xl italic text-smoke">
+          Birthdays, farewells, "we just passed" celebrations. Book a table and we'll keep it.
+        </p>
+        <ul class="mt-10 grid gap-4 sm:grid-cols-2">
+          {perks.map((p, i) => (
+            <li class={`rounded-2xl border-2 border-ink p-5 shadow-hard-sm ${i % 3 === 1 ? "bg-yellow" : "bg-paper"}`}>
+              <p class="font-display text-xl font-extrabold leading-tight">{p.t}</p>
+              <p class="mt-1 text-smoke">{p.d}</p>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-8 text-smoke">
+          Prefer to just call? <a href={links.tel} class="font-display font-bold text-ink underline decoration-yellow decoration-4 underline-offset-4">{site.phoneDisplay}</a>
+        </p>
+      </div>
+      <div>
+        <EventBooking client:load />
+      </div>
+    </div>
+  </main>
+  <Footer />
+  <MobileBar client:idle />
+</MainLayout>

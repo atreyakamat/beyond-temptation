@@ -5,8 +5,8 @@ import { links, site } from "../../data/site";
 const NAV = [
   { href: "/menu", label: "Menu" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/book-event", label: "Events" },
-  { href: "#visit", label: "Visit" },
+  { href: "/events", label: "Events" },
+  { href: "/visit", label: "Visit" },
 ];
 
 export default function Nav({ solid = false }: { solid?: boolean }) {

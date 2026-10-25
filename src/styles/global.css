@@ -56,3 +56,27 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Hero backdrop doodle field — two rows of tiles translating by one tile width */
+.doodle-field {
+  position: absolute;
+  left: 0;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.doodle-field-a { top: 6%; color: #FFD60A; opacity: 0.22; }
+.doodle-field-b { top: 48%; color: #FFF0A8; opacity: 0.14; }
+.doodle-tile {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 56px 72px;
+  padding: 0 36px;
+  width: 1480px;
+  align-items: center;
+}
+.doodle { flex: none; }
+@keyframes driftA { from { transform: translate3d(0,0,0); } to { transform: translate3d(-1480px,0,0); } }
+@keyframes driftB { from { transform: translate3d(-1480px,0,0); } to { transform: translate3d(0,0,0); } }
+.animate-drift-a { animation: driftA 90s linear infinite; }
+.animate-drift-b { animation: driftB 120s linear infinite; }
