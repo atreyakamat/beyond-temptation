@@ -68,7 +68,7 @@ export default function Hero() {
       className="relative isolate min-h-[100svh] overflow-hidden bg-ink text-paper"
       aria-label="Welcome"
     >
-      <Backdrop sx={sx} sy={sy} />
+      <Backdrop />
       {/* Rotating badge */}
       <div className="pointer-events-none absolute right-5 top-24 z-20 hidden md:block">
         <RotatingBadge />

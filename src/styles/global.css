@@ -57,24 +57,26 @@ body {
   }
 }
 
-/* Hero backdrop blobs — transform-only so they stay on the compositor */
-.blob {
+/* Hero backdrop doodle field — two rows of tiles translating by one tile width */
+.doodle-field {
   position: absolute;
-  border-radius: 9999px;
-  filter: blur(70px);
+  left: 0;
+  display: flex;
+  width: max-content;
   will-change: transform;
-  opacity: 0.85;
 }
-.blob-a { width: 60vw; height: 60vw; max-width: 760px; max-height: 760px; left: 30vw; top: -30vw; background: #FFD60A; opacity: 0.18; }
-.blob-b { width: 48vw; height: 48vw; max-width: 620px; max-height: 620px; right: -14vw; top: 18vh; background: #FF3B1F; opacity: 0.28; }
-.blob-c { width: 54vw; height: 54vw; max-width: 700px; max-height: 700px; left: -16vw; bottom: -24vw; background: #7A3E1D; opacity: 0.6; }
-
-@keyframes blobA { 0%,100% { transform: translate3d(0,0,0) scale(1); } 33% { transform: translate3d(12vw,8vh,0) scale(1.12); } 66% { transform: translate3d(4vw,18vh,0) scale(0.94); } }
-@keyframes blobB { 0%,100% { transform: translate3d(0,0,0) scale(1); } 40% { transform: translate3d(-14vw,10vh,0) scale(1.18); } 70% { transform: translate3d(-6vw,-8vh,0) scale(0.9); } }
-@keyframes blobC { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(-10vw,-14vh,0) scale(1.15); } }
-.animate-blob-a { animation: blobA 22s ease-in-out infinite; }
-.animate-blob-b { animation: blobB 26s ease-in-out infinite; }
-.animate-blob-c { animation: blobC 30s ease-in-out infinite; }
-
-@keyframes drip { 0%,100% { transform: translateY(0) scaleY(1); } 50% { transform: translateY(6px) scaleY(1.06); } }
-.animate-drip { transform-origin: top; animation: drip 6s ease-in-out infinite; }
+.doodle-field-a { top: 6%; color: #FFD60A; opacity: 0.22; }
+.doodle-field-b { top: 48%; color: #FFF0A8; opacity: 0.14; }
+.doodle-tile {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 56px 72px;
+  padding: 0 36px;
+  width: 1480px;
+  align-items: center;
+}
+.doodle { flex: none; }
+@keyframes driftA { from { transform: translate3d(0,0,0); } to { transform: translate3d(-1480px,0,0); } }
+@keyframes driftB { from { transform: translate3d(-1480px,0,0); } to { transform: translate3d(0,0,0); } }
+.animate-drift-a { animation: driftA 90s linear infinite; }
+.animate-drift-b { animation: driftB 120s linear infinite; }
