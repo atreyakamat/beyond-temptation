@@ -2,6 +2,7 @@
 export const site = {
   name: "Beyond Temptation",
   tagline: "Mapusa's meeting point.",
+  motto: "Chocolate is just a beginning. It's more than chocolate.",
   description:
     "Beyond Temptation is a café in Mapusa, Goa. Burgers, pizza, loaded sandwiches, thick shakes and proper coffee. Open daily.",
   phone: "+919146452813",
@@ -10,9 +11,9 @@ export const site = {
   instagram: "beyondtemptationmapusa",
   facebook: "beyondtemptationmapusa",
   address: {
-    line1: "Waman Residency",
-    line2: "Mapusa, Goa 403507",
-    full: "Waman Residency, Mapusa, Goa 403507",
+    line1: "Waman Residency, near Saldanha Tower",
+    line2: "Next to Hill Crown Building, Mapusa, Goa 403507",
+    full: "Waman Residency, Near Saldanha Tower, Next to Hill Crown Building, Mapusa, Goa 403507",
   },
   // TODO(verify): listings disagree (Zomato says 11am, magicpin 10am, late open Tue/Sun).
   hours: [
@@ -26,7 +27,8 @@ export const site = {
     { source: "Google", score: "4.5", count: "verify" }, // TODO(verify)
   ],
   priceForTwo: "₹400",
-  mapsQuery: "Beyond Temptation, Waman Residency, Mapusa, Goa 403507",
+  mapsQuery: "Beyond Temptation, Waman Residency, Saldanha Tower, Mapusa, Goa 403507",
+  delivery: ["Swiggy", "Zomato"],
 } as const;
 
 export const links = {
@@ -50,9 +52,9 @@ export type MenuItem = {
 
 export const bestsellers: MenuItem[] = [
   {
-    name: "Smash Chicken Burger",
-    blurb: "Double smashed patty, cheddar, house sauce, soft potato bun.",
-    price: "₹180",
+    name: "Beyond Special Burger",
+    blurb: "Chicken burger + fries + dips. The full plate, the house signature.",
+    price: "₹250",
     tag: "bestseller",
     category: "Burgers",
     image:
@@ -60,19 +62,19 @@ export const bestsellers: MenuItem[] = [
     accent: "#FF3B1F",
   },
   {
-    name: "Peri Peri Paneer Pizza",
-    blurb: "Hand-stretched base, peri peri paneer, bell peppers, mozzarella.",
+    name: "Chicken BBQ Pizza",
+    blurb: "Smoky BBQ chicken, mozzarella, hand-stretched base.",
     price: "₹220",
-    tag: "veg",
+    tag: "spicy",
     category: "Pizza",
     image:
       "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80",
     accent: "#FFD60A",
   },
   {
-    name: "Oreo Thick Shake",
-    blurb: "Spoon-thick. Whipped cream on top, whole Oreo on the rim.",
-    price: "₹140",
+    name: "Oreo Mastani",
+    blurb: "Crushed Oreo through and through, a whole one on top. Comes with a spoon.",
+    price: "₹150",
     tag: "bestseller",
     category: "Shakes",
     image:
@@ -81,27 +83,27 @@ export const bestsellers: MenuItem[] = [
   },
   {
     name: "Cold Coffee",
-    blurb: "The Mapusa classic. Blended, frothy, properly cold.",
-    price: "₹110",
+    blurb: "The Mapusa classic. Blended, frothy, properly cold. ₹70, no catch.",
+    price: "₹70",
     category: "Coffee",
     image:
       "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=900&q=80",
     accent: "#FFD60A",
   },
   {
-    name: "Loaded Chicken Sandwich",
-    blurb: "Grilled chicken, jalapeños, cheese, toasted till the edges crackle.",
-    price: "₹150",
-    tag: "spicy",
+    name: "Bombay Grill Sandwich",
+    blurb: "Beetroot, cucumber, green chutney, cheese. Street-style, toasted till it crackles.",
+    price: "₹120",
+    tag: "veg",
     category: "Sandwiches",
     image:
       "https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=900&q=80",
     accent: "#FF3B1F",
   },
   {
-    name: "Chocolate Brownie Sizzler",
-    blurb: "Warm brownie, vanilla scoop, hot fudge, actual sizzle.",
-    price: "₹160",
+    name: "Sizzler Brownie",
+    blurb: "Hot plate, cold scoop, fudge poured at the table. Actual sizzle.",
+    price: "₹200",
     tag: "new",
     category: "Desserts",
     image:

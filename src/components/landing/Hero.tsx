@@ -9,6 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { links, site } from "../../data/site";
+import { Magnetic, SplitWord } from "./motion";
 
 const WORDS = ["burgers", "pizza", "thick shakes", "cold coffee", "your people"];
 
@@ -21,12 +22,14 @@ type Sticker = {
   bg: string;
   fg: string;
   hideOnMobile?: boolean;
+  mobileOnly?: boolean;
 };
 
 const STICKERS: Sticker[] = [
   { label: "₹400 for two", x: "6%", y: "18%", rot: -12, depth: 28, bg: "#FFD60A", fg: "#000" },
+  { label: "Mapusa", x: "62%", y: "22%", rot: 8, depth: 22, bg: "#FF3B1F", fg: "#fff", mobileOnly: true },
   { label: "Open till 9 pm", x: "74%", y: "14%", rot: 9, depth: 40, bg: "#FFFFFF", fg: "#000", hideOnMobile: true },
-  { label: "Mapusa, Goa", x: "80%", y: "66%", rot: -7, depth: 22, bg: "#FF3B1F", fg: "#fff" },
+  { label: "Mapusa, Goa", x: "80%", y: "66%", rot: -7, depth: 22, bg: "#FF3B1F", fg: "#fff", hideOnMobile: true },
   { label: "order on WhatsApp", x: "4%", y: "72%", rot: 6, depth: 34, bg: "#FFFFFF", fg: "#000", hideOnMobile: true },
 ];
 
@@ -80,14 +83,23 @@ export default function Hero() {
         className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-28 pt-32 md:px-10 md:pb-24"
       >
         <h1 className="font-display text-display-xl text-yellow">
-          <Line text="Beyond" delay={0} />
-          <Line text="Temptation" delay={0.12} />
+          <SplitWord text="Beyond" delay={0.1} />
+          <SplitWord text="Temptation" delay={0.3} />
         </h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1, duration: 0.6 }}
+          className="mt-4 font-display text-lg font-bold text-paper/60 md:text-xl"
+        >
+          {site.motto}
+        </motion.p>
 
         <div className="mt-6 flex flex-col gap-6 md:mt-8 md:flex-row md:items-end md:justify-between">
           <p className="font-display text-display-md max-w-xl text-paper">
             Mapusa's meeting point for{" "}
-            <span className="relative inline-block min-w-[6ch] align-bottom">
+            <span className="relative inline-block align-bottom">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                   key={WORDS[i]}
@@ -105,21 +117,21 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <a
+            <Magnetic
               href={links.whatsapp()}
               target="_blank"
               rel="noopener"
-              className="group inline-flex items-center gap-2 rounded-full bg-yellow px-6 py-4 font-display text-lg font-bold text-ink shadow-hard-yellow transition-transform hover:-translate-y-0.5 active:translate-y-0"
+              className="group inline-flex items-center gap-2 rounded-full bg-yellow px-6 py-4 font-display text-lg font-bold text-ink shadow-hard-yellow"
             >
               <WhatsAppIcon />
               Order on WhatsApp
-            </a>
-            <a
-              href="#bestsellers"
+            </Magnetic>
+            <Magnetic
+              href="/menu"
               className="inline-flex items-center rounded-full border-2 border-paper px-6 py-4 font-display text-lg font-bold text-paper transition-colors hover:bg-paper hover:text-ink"
             >
               See the menu
-            </a>
+            </Magnetic>
           </div>
         </div>
       </motion.div>
@@ -133,21 +145,6 @@ export default function Hero() {
         {site.tagline.replace(".", "")} &nbsp; {site.tagline.replace(".", "")}
       </motion.div>
     </section>
-  );
-}
-
-function Line({ text, delay }: { text: string; delay: number }) {
-  return (
-    <span className="block overflow-hidden">
-      <motion.span
-        initial={{ y: "110%" }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
-        className="block"
-      >
-        {text}
-      </motion.span>
-    </span>
   );
 }
 
@@ -171,7 +168,7 @@ function Sticker({
       animate={{ scale: 1, rotate: s.rot }}
       transition={{ type: "spring", stiffness: 220, damping: 14, delay: 0.6 + s.depth / 100 }}
       className={`absolute z-20 rounded-md border-2 border-ink px-4 py-2 font-display text-base font-bold shadow-hard ${
-        s.hideOnMobile ? "hidden md:block" : ""
+        s.hideOnMobile ? "hidden md:block" : s.mobileOnly ? "md:hidden" : ""
       }`}
     >
       {s.label}

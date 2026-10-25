@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { animate, motion, useInView, useReducedMotion } from "framer-motion";
 import { site } from "../../data/site";
 
 export default function Proof() {
@@ -18,7 +19,7 @@ export default function Proof() {
               transition={{ type: "spring", stiffness: 200, damping: 14, delay: i * 0.1 }}
               className="flex h-36 w-36 flex-col items-center justify-center rounded-full border-4 border-ink bg-paper shadow-hard"
             >
-              <span className="font-display text-5xl font-extrabold leading-none">{r.score}</span>
+              <CountUp value={r.score} />
               <span className="mt-1 font-display text-base font-bold">{r.source}</span>
               <span className="text-xs text-smoke">{r.count}</span>
             </motion.li>
@@ -26,5 +27,32 @@ export default function Proof() {
         </ul>
       </div>
     </section>
+  );
+}
+
+function CountUp({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-20%" });
+  const reduce = useReducedMotion();
+  useEffect(() => {
+    if (!inView || !ref.current) return;
+    const target = parseFloat(value);
+    if (reduce || Number.isNaN(target)) {
+      ref.current.textContent = value;
+      return;
+    }
+    const ctrl = animate(0, target, {
+      duration: 1.4,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (v) => {
+        if (ref.current) ref.current.textContent = v.toFixed(1);
+      },
+    });
+    return () => ctrl.stop();
+  }, [inView, value, reduce]);
+  return (
+    <span ref={ref} className="font-display text-5xl font-extrabold leading-none tabular-nums">
+      0.0
+    </span>
   );
 }

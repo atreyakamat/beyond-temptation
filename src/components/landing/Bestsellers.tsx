@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { RevealLines } from "./motion";
 import { bestsellers, links, type MenuItem } from "../../data/site";
 
 const CATS = ["All", "Burgers", "Pizza", "Sandwiches", "Shakes", "Coffee", "Desserts"] as const;
@@ -12,14 +13,15 @@ export default function Bestsellers() {
     <section id="bestsellers" className="bg-cream py-20 text-ink md:py-28">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <h2 className="font-display text-display-lg">
-            What people
-            <br />
-            keep coming back for
-          </h2>
-          <p className="max-w-sm text-lg text-smoke">
-            The bestsellers, as voted by the counter queue. Tap a card to order it straight on WhatsApp.
-          </p>
+          <RevealLines lines={["What people", "keep coming back for"]} className="font-display text-display-lg" />
+          <div className="max-w-sm">
+            <p className="text-lg text-smoke">
+              The bestsellers, as voted by the counter queue. Tap a card to order it straight on WhatsApp.
+            </p>
+            <a href="/menu" className="mt-3 inline-block font-display text-lg font-bold underline decoration-4 decoration-yellow underline-offset-4 hover:decoration-ink">
+              Full menu with prices
+            </a>
+          </div>
         </div>
 
         <div className="mt-10 flex gap-2 overflow-x-auto pb-2 no-scrollbar" role="tablist" aria-label="Menu categories">
@@ -41,11 +43,15 @@ export default function Bestsellers() {
           })}
         </div>
 
-        <motion.div layout className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, idx) => (
-            <Card key={item.name} item={item} idx={idx} />
-          ))}
-        </motion.div>
+        <LayoutGroup>
+          <motion.div layout className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <AnimatePresence mode="popLayout">
+              {items.map((item, idx) => (
+                <Card key={item.name} item={item} idx={idx} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </LayoutGroup>
       </div>
     </section>
   );
@@ -79,14 +85,14 @@ function Card({ item, idx }: { item: MenuItem; idx: number }) {
       target="_blank"
       rel="noopener"
       layout
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: idx * 0.06 }}
+      initial={{ opacity: 0, scale: 0.9, y: 24 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ type: "spring", stiffness: 300, damping: 26, delay: idx * 0.04 }}
       onMouseMove={onMove}
       onMouseLeave={reset}
       style={{ rotateX: srx, rotateY: sry, transformPerspective: 900 }}
-      className="group relative block overflow-hidden rounded-2xl border-2 border-ink bg-paper shadow-hard transition-shadow hover:shadow-[10px_10px_0_0_#000]"
+      className="group relative block overflow-hidden rounded-2xl border-2 border-ink bg-paper shadow-hard will-change-transform transition-shadow hover:shadow-[10px_10px_0_0_#000]"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <img

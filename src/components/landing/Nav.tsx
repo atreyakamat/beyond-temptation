@@ -9,7 +9,7 @@ const NAV = [
   { href: "#visit", label: "Visit" },
 ];
 
-export default function Nav() {
+export default function Nav({ solid = false }: { solid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -31,7 +31,7 @@ export default function Nav() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-ink/85 py-3 backdrop-blur-md" : "bg-transparent py-5"
+          scrolled || solid ? "bg-ink/85 py-3 backdrop-blur-md" : "bg-transparent py-5"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 md:px-10">

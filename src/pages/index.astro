@@ -2,7 +2,9 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Nav from "../components/landing/Nav";
 import Hero from "../components/landing/Hero";
-import Marquee from "../components/landing/Marquee.astro";
+import Marquee from "../components/landing/Marquee";
+import Intro from "../components/landing/Intro";
+import SmoothScroll from "../components/landing/SmoothScroll";
 import Bestsellers from "../components/landing/Bestsellers";
 import Vibe from "../components/landing/Vibe";
 import Proof from "../components/landing/Proof";
@@ -13,12 +15,14 @@ import { site } from "../data/site";
 ---
 
 <MainLayout title={`${site.name} — Café in Mapusa, Goa`} dark>
+  <Intro client:load />
+  <SmoothScroll client:load />
   <Nav client:load />
   <main>
     <Hero client:load />
-    <Marquee />
+    <Marquee client:load />
     <Bestsellers client:visible />
-    <Marquee tone="black" items={["Open daily", "Dine in", "Takeaway", "WhatsApp orders", "Birthdays & events"]} />
+    <Marquee client:visible tone="black" items={["Open daily", "Dine in", "Takeaway", "WhatsApp orders", "On Swiggy & Zomato", "Birthdays & events"]} />
     <Vibe client:visible />
     <Proof client:visible />
     <Visit />
