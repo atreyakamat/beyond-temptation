@@ -1,5 +1,6 @@
 ---
 import { links, site } from "../../data/site";
+import OpenNow from "./OpenNow";
 ---
 
 <section id="visit" class="bg-paper py-20 text-ink md:py-28">
@@ -10,13 +11,15 @@ import { links, site } from "../../data/site";
         <address class="mt-8 not-italic">
           <p class="font-display text-2xl font-bold">{site.address.line1}</p>
           <p class="text-xl text-smoke">{site.address.line2}</p>
+          <p class="mt-1 font-accent text-xl italic text-smoke">{site.address.landmark}</p>
         </address>
+        <div class="mt-6"><OpenNow client:load /></div>
 
         <dl class="mt-8 divide-y-2 divide-ink border-y-2 border-ink">
           {site.hours.map((h) => (
             <div class="flex items-center justify-between py-3 font-display text-lg">
               <dt class="font-bold">{h.days}</dt>
-              <dd>{h.time}</dd>
+              <dd class={h.time === "Closed" ? "font-accent italic text-tomato" : ""}>{h.time}</dd>
             </div>
           ))}
         </dl>

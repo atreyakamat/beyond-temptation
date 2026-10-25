@@ -25,6 +25,7 @@ export default {
 			},
 			fontFamily: {
 				display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+				accent: ['"Instrument Serif"', 'Georgia', 'serif'],
 				sans: ['Figtree', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
 				serif: ['Georgia', 'serif'],
 			},

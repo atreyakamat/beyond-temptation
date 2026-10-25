@@ -8,6 +8,9 @@ import SmoothScroll from "../components/landing/SmoothScroll";
 import Bestsellers from "../components/landing/Bestsellers";
 import Vibe from "../components/landing/Vibe";
 import Proof from "../components/landing/Proof";
+import ShakeWall from "../components/landing/ShakeWall";
+import Signature from "../components/landing/Signature";
+import Reviews from "../components/landing/Reviews";
 import Visit from "../components/landing/Visit.astro";
 import Footer from "../components/landing/Footer.astro";
 import MobileBar from "../components/landing/MobileBar";
@@ -21,9 +24,12 @@ import { site } from "../data/site";
   <main>
     <Hero client:load />
     <Marquee client:load />
+    <Signature client:visible />
     <Bestsellers client:visible />
-    <Marquee client:visible tone="black" items={["Open daily", "Dine in", "Takeaway", "WhatsApp orders", "On Swiggy & Zomato", "Birthdays & events"]} />
+    <Marquee client:visible tone="black" seed={1} />
+    <ShakeWall client:visible />
     <Vibe client:visible />
+    <Reviews client:visible />
     <Proof client:visible />
     <Visit />
   </main>

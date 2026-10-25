@@ -28,7 +28,7 @@ type Sticker = {
 const STICKERS: Sticker[] = [
   { label: "₹400 for two", x: "6%", y: "18%", rot: -12, depth: 28, bg: "#FFD60A", fg: "#000" },
   { label: "Mapusa", x: "62%", y: "22%", rot: 8, depth: 22, bg: "#FF3B1F", fg: "#fff", mobileOnly: true },
-  { label: "Open till 9 pm", x: "74%", y: "14%", rot: 9, depth: 40, bg: "#FFFFFF", fg: "#000", hideOnMobile: true },
+  { label: "Mon–Sat, 10 am – 9 pm", x: "70%", y: "14%", rot: 9, depth: 40, bg: "#FFFFFF", fg: "#000", hideOnMobile: true },
   { label: "Mapusa, Goa", x: "80%", y: "66%", rot: -7, depth: 22, bg: "#FF3B1F", fg: "#fff", hideOnMobile: true },
   { label: "order on WhatsApp", x: "4%", y: "72%", rot: 6, depth: 34, bg: "#FFFFFF", fg: "#000", hideOnMobile: true },
 ];
@@ -107,7 +107,7 @@ export default function Hero() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: "-100%", opacity: 0 }}
                   transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-                  className="inline-block border-b-[6px] border-yellow text-yellow"
+                  className="inline-block border-b-[6px] border-yellow font-accent italic text-yellow"
                 >
                   {WORDS[i]}
                 </motion.span>

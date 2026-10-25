@@ -4,30 +4,35 @@ export const site = {
   tagline: "Mapusa's meeting point.",
   motto: "Chocolate is just a beginning. It's more than chocolate.",
   description:
-    "Beyond Temptation is a café in Mapusa, Goa. Burgers, pizza, loaded sandwiches, thick shakes and proper coffee. Open daily.",
+    "Beyond Temptation is a café in Mapusa, Goa. Burgers, pizza, loaded sandwiches, thick shakes and proper coffee. Open Mon–Sat, 10 am to 9 pm.",
   phone: "+919146452813",
   phoneDisplay: "+91 91464 52813",
   whatsapp: "919146452813",
   instagram: "beyondtemptationmapusa",
   facebook: "beyondtemptationmapusa",
   address: {
-    line1: "Waman Residency, near Saldanha Tower",
-    line2: "Next to Hill Crown Building, Mapusa, Goa 403507",
-    full: "Waman Residency, Near Saldanha Tower, Next to Hill Crown Building, Mapusa, Goa 403507",
+    line1: "Waman Residency, opp. St. Britto School",
+    line2: "Dangui Colony, Alto, Mapusa, Goa 403507",
+    landmark: "Near Saldanha Tower, next to Hill Crown Building",
+    full: "Waman Residency, opp. St. Britto School, Dangui Colony, Alto, Mapusa, Goa 403507",
   },
-  // TODO(verify): listings disagree (Zomato says 11am, magicpin 10am, late open Tue/Sun).
+  // From the Google Business listing.
   hours: [
     { days: "Mon – Sat", time: "10:00 am – 9:00 pm" },
-    { days: "Sunday", time: "2:30 pm – 9:30 pm" },
+    { days: "Sunday", time: "Closed" },
   ],
-  hoursShort: "Open daily till 9 pm",
+  openDays: [1, 2, 3, 4, 5, 6], // JS getDay(): 0 = Sunday
+  openHour: 10,
+  closeHour: 21,
+  hoursShort: "Mon–Sat, 10 am – 9 pm",
   ratings: [
-    { source: "Zomato", score: "4.2", count: "78+ ratings" },
+    { source: "Google", score: "4.5", count: "73 reviews" },
     { source: "Justdial", score: "4.6", count: "61 ratings" },
-    { source: "Google", score: "4.5", count: "verify" }, // TODO(verify)
+    { source: "Zomato", score: "4.2", count: "78+ ratings" },
   ],
+  placeId: "ChIJLUj9gPPrvzsRmB-fCAzzqGY",
   priceForTwo: "₹400",
-  mapsQuery: "Beyond Temptation, Waman Residency, Saldanha Tower, Mapusa, Goa 403507",
+  mapsQuery: "Beyond Temptation Mapusa, Waman Residency, Dangui Colony, Alto, Mapusa, Goa 403507",
   delivery: ["Swiggy", "Zomato"],
 } as const;
 
@@ -35,7 +40,8 @@ export const links = {
   whatsapp: (text = "Hi! I'd like to order from Beyond Temptation.") =>
     `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`,
   instagram: `https://instagram.com/${site.instagram}`,
-  maps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}`,
+  maps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}&query_place_id=${site.placeId}`,
+  review: `https://search.google.com/local/writereview?placeid=${site.placeId}`,
   mapsEmbed: `https://www.google.com/maps?q=${encodeURIComponent(site.mapsQuery)}&output=embed`,
   tel: `tel:${site.phone}`,
 };
@@ -119,4 +125,13 @@ export const vibeTiles = [
   { src: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80", alt: "Counter and coffee machine", span: "" },
   { src: "https://images.unsplash.com/photo-1600093463592-2e8d28d7f1f6?auto=format&fit=crop&w=900&q=80", alt: "Evening lights", span: "" },
   { src: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80", alt: "Late evening crowd", span: "wide" },
+] as const;
+
+// Real reviews from the Google Business listing (lightly trimmed for length).
+export const reviews = [
+  { text: "The burgers here are to die for. It's my go-to place every time I crave a burger. I always order Beyond Special, but do try their other food. Especially the shakes.", who: "Google review" },
+  { text: "Perfect place for a small celebration like a birthday or a casual get-together. We tried their pizza, peri peri fries and burger. The burger stood out with its super crispy patty.", who: "Google review" },
+  { text: "A great budget-friendly spot to hang out. The food is really solid for the price. We tried the garlic bread, veg burger and coffee, and everything was flavourful and satisfying.", who: "Google review" },
+  { text: "Cozy and peaceful, hidden away from the hustle-bustle of Mapusa town. Courteous servers, served with a smile. The café was packed.", who: "Google review" },
+  { text: "Tasty bites. Chicken burger and chicken sandwich were good. Ample seating, you can go in a group of 10 too. Reasonable prices. Will come again.", who: "Google review" },
 ] as const;
