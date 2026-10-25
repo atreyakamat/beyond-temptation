@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Nav from "../components/landing/Nav";
-import Menu from "../components/landing/Menu";
+import MenuList from "../components/landing/Menu";
 import Footer from "../components/landing/Footer.astro";
 import MobileBar from "../components/landing/MobileBar";
 import SmoothScroll from "../components/landing/SmoothScroll";
@@ -20,7 +20,7 @@ import { site } from "../data/site";
       </p>
     </div>
     <div class="mt-10">
-      <Menu client:load />
+      <MenuList client:load />
     </div>
   </main>
   <Footer />
