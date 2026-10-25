@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { links, site } from "../../data/site";
 import { Magnetic, SplitWord } from "./motion";
+import Backdrop from "./Backdrop";
 
 const WORDS = ["burgers", "pizza", "thick shakes", "cold coffee", "your people"];
 
@@ -30,7 +31,7 @@ const STICKERS: Sticker[] = [
   { label: "Mapusa", x: "62%", y: "22%", rot: 8, depth: 22, bg: "#FF3B1F", fg: "#fff", mobileOnly: true },
   { label: "Mon–Sat, 10 am – 9 pm", x: "70%", y: "14%", rot: 9, depth: 40, bg: "#FFFFFF", fg: "#000", hideOnMobile: true },
   { label: "Mapusa, Goa", x: "80%", y: "66%", rot: -7, depth: 22, bg: "#FF3B1F", fg: "#fff", hideOnMobile: true },
-  { label: "order on WhatsApp", x: "4%", y: "72%", rot: 6, depth: 34, bg: "#FFFFFF", fg: "#000", hideOnMobile: true },
+  { label: "order on WhatsApp", x: "3%", y: "27%", rot: 6, depth: 34, bg: "#FFFFFF", fg: "#000", hideOnMobile: true },
 ];
 
 export default function Hero() {
@@ -64,9 +65,10 @@ export default function Hero() {
     <section
       ref={ref}
       onMouseMove={onMove}
-      className="grain relative isolate min-h-[100svh] overflow-hidden bg-ink text-paper"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-ink text-paper"
       aria-label="Welcome"
     >
+      <Backdrop sx={sx} sy={sy} />
       {/* Rotating badge */}
       <div className="pointer-events-none absolute right-5 top-24 z-20 hidden md:block">
         <RotatingBadge />
