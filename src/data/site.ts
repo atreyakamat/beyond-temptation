@@ -140,4 +140,9 @@ export const reviews = [
 // section renders Instagram's own embed for each. Empty list = "tag us" tiles.
 export const reels: string[] = [
   "https://www.instagram.com/reel/C5N7uSOyagy/",
+  "https://www.instagram.com/reel/C_cslY4AUWS/",
+  "https://www.instagram.com/reel/DHvWyULxkQX/",
+  "https://www.instagram.com/reel/DLIHPEQorz3/",
+  "https://www.instagram.com/reel/DOaoJ7cjPTj/",
+  "https://www.instagram.com/reel/DeMSN39OPNN/",
 ];
