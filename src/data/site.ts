@@ -64,7 +64,7 @@ export const bestsellers: MenuItem[] = [
     tag: "bestseller",
     category: "Burgers",
     image:
-      "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80",
+      "/photos/beyond-special.webp",
     accent: "#FF3B1F",
   },
   {
@@ -74,7 +74,7 @@ export const bestsellers: MenuItem[] = [
     tag: "spicy",
     category: "Pizza",
     image:
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80",
+      "/photos/gallery-4.webp",
     accent: "#FFD60A",
   },
   {
@@ -84,7 +84,7 @@ export const bestsellers: MenuItem[] = [
     tag: "bestseller",
     category: "Shakes",
     image:
-      "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=900&q=80",
+      "/photos/gallery-6.webp",
     accent: "#FFFFFF",
   },
   {
@@ -93,7 +93,7 @@ export const bestsellers: MenuItem[] = [
     price: "₹70",
     category: "Coffee",
     image:
-      "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=900&q=80",
+      "/photos/gallery-2.webp",
     accent: "#FFD60A",
   },
   {
@@ -103,7 +103,7 @@ export const bestsellers: MenuItem[] = [
     tag: "veg",
     category: "Sandwiches",
     image:
-      "https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=900&q=80",
+      "/photos/vibe-3.webp",
     accent: "#FF3B1F",
   },
   {
@@ -113,18 +113,35 @@ export const bestsellers: MenuItem[] = [
     tag: "new",
     category: "Desserts",
     image:
-      "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?auto=format&fit=crop&w=900&q=80",
+      "/photos/vibe-4.webp",
     accent: "#FFFFFF",
   },
 ];
 
 export const vibeTiles = [
-  // TODO: swap for real shots from @beyondtemptationmapusa
-  { src: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80", alt: "Inside the café", span: "wide" },
-  { src: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=900&q=80", alt: "Friends at a table", span: "tall" },
-  { src: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80", alt: "Counter and coffee machine", span: "" },
-  { src: "https://images.unsplash.com/photo-1600093463592-2e8d28d7f1f6?auto=format&fit=crop&w=900&q=80", alt: "Evening lights", span: "" },
-  { src: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80", alt: "Late evening crowd", span: "wide" },
+  { src: "/photos/vibe-1.webp", alt: "Full house on a birthday afternoon", span: "tall" },
+  { src: "/photos/vibe-3.webp", alt: "Corn pizza, burger, cold coffee, peri peri fries", span: "wide" },
+  { src: "/photos/vibe-4.webp", alt: "Sizzler brownie, fudge still bubbling", span: "" },
+  { src: "/photos/vibe-2.webp", alt: "The hand-painted wall", span: "wide" },
+  { src: "/photos/vibe-5.webp", alt: "Birthday setup with the neon heart", span: "" },
+] as const;
+
+export const galleryPhotos = [
+  { src: "/photos/gallery-2.webp", alt: "Cold coffee, blue lagoon and loaded fries" },
+  { src: "/photos/gallery-1.webp", alt: "Red and black party setup" },
+  { src: "/photos/gallery-6.webp", alt: "Masala fries, mayo fries, two thick shakes" },
+  { src: "/photos/gallery-3.webp", alt: "Gold birthday setup" },
+  { src: "/photos/gallery-4.webp", alt: "Margherita, straight off the stone" },
+  { src: "/photos/gallery-5.webp", alt: "Balloon arch and three cakes" },
+  { src: "/photos/beyond-special.webp", alt: "The full spread" },
+  { src: "/photos/gallery-7.webp", alt: "Find us at Waman Residency" },
+  { src: "/photos/gallery-8.webp", alt: "Peach ice tea, 10am to 9pm" },
+  { src: "/photos/vibe-2.webp", alt: "The floral mural" },
+] as const;
+
+export const videos = [
+  { src: "/video/reel-1.mp4", poster: "/video/reel-1.webp", alt: "Inside Beyond Temptation", portrait: true },
+  { src: "/video/reel-2.mp4", poster: "/video/reel-2.webp", alt: "At the counter", portrait: false },
 ] as const;
 
 // Real reviews from the Google Business listing (lightly trimmed for length).

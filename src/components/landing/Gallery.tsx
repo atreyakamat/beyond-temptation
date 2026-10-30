@@ -1,22 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { links, reels, site, vibeTiles } from "../../data/site";
-import Photo from "./Photo";
+import { galleryPhotos, links, reels, site, videos } from "../../data/site";
 
 /** Gallery: your photos (public/photos/gallery-N.jpg) mixed with Instagram reel embeds. */
 export default function Gallery() {
-  const [tab, setTab] = useState<"all" | "photos" | "reels">("all");
-  const items: ({ kind: "photo"; i: number; alt: string; fb: string } | { kind: "reel"; url: string })[] = [];
-  vibeTiles.forEach((t, i) => items.push({ kind: "photo", i, alt: t.alt, fb: t.src }));
-  reels.forEach((url) => items.push({ kind: "reel", url }));
-  // interleave photos and reels
-  const ordered = items.sort((a, b) => (a.kind === b.kind ? 0 : 0));
-  const shown = ordered.filter((it) => tab === "all" || (tab === "photos" ? it.kind === "photo" : it.kind === "reel"));
+  const [tab, setTab] = useState<"all" | "photos" | "videos" | "reels">("all");
+  type Item =
+    | { kind: "photo"; src: string; alt: string }
+    | { kind: "video"; src: string; poster: string; alt: string; portrait: boolean }
+    | { kind: "reel"; url: string };
+  const items: Item[] = [];
+  // interleave: 2 photos, a video, 2 photos, a reel ...
+  const ph = [...galleryPhotos], vd = [...videos], rl = [...reels];
+  while (ph.length || vd.length || rl.length) {
+    for (let k = 0; k < 2 && ph.length; k++) items.push({ kind: "photo", ...ph.shift()! });
+    if (vd.length) items.push({ kind: "video", ...vd.shift()! });
+    for (let k = 0; k < 2 && ph.length; k++) items.push({ kind: "photo", ...ph.shift()! });
+    if (rl.length) items.push({ kind: "reel", url: rl.shift()! });
+  }
+  const shown = items.filter((it) => tab === "all" || it.kind === tab.replace(/s$/, ""));
 
   return (
     <div className="mx-auto max-w-7xl px-5 md:px-10">
       <div className="flex gap-2" role="tablist">
-        {(["all", "photos", "reels"] as const).map((t) => (
+        {(["all", "photos", "videos", "reels"] as const).map((t) => (
           <button
             key={t}
             role="tab"
@@ -41,16 +48,18 @@ export default function Gallery() {
         {shown.map((it, idx) =>
           it.kind === "photo" ? (
             <motion.figure
-              key={`p${it.i}`}
+              key={it.src}
               layout
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (idx % 6) * 0.05 }}
-              className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border-2 border-ink shadow-hard"
+              className="group mb-5 break-inside-avoid overflow-hidden rounded-2xl border-2 border-ink shadow-hard"
             >
-              <Photo src={`/photos/gallery-${it.i + 1}.jpg`} fallback={it.fb} alt={it.alt} className="w-full object-cover" />
+              <img src={it.src} alt={it.alt} loading="lazy" decoding="async" className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
             </motion.figure>
+          ) : it.kind === "video" ? (
+            <VideoCard key={it.src} v={it} />
           ) : (
             <ReelCard key={it.url} url={it.url} />
           ),
@@ -82,5 +91,45 @@ function ReelCard({ url }: { url: string }) {
         <iframe src={`https://www.instagram.com/${m[1]}/${m[2]}/embed/`} title="Instagram reel" className="h-full w-full" style={{ border: 0 }} loading="lazy" allow="encrypted-media" />
       )}
     </motion.div>
+  );
+}
+
+/** Muted autoplay loop; only loads when near the viewport. */
+function VideoCard({ v }: { v: (typeof videos)[number] }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          if (!el.src) el.src = v.src;
+          el.play().catch(() => {});
+        } else el.pause();
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [v.src]);
+  return (
+    <motion.figure
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border-2 border-ink bg-ink shadow-hard"
+    >
+      <video
+        ref={ref}
+        poster={v.poster}
+        muted
+        loop
+        playsInline
+        preload="none"
+        aria-label={v.alt}
+        className={`w-full object-cover ${v.portrait ? "aspect-[9/16]" : "aspect-square"}`}
+      />
+    </motion.figure>
   );
 }

@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
 import { links } from "../../data/site";
 import { Magnetic, RevealLines } from "./motion";
-import Photo from "./Photo";
 
-const PHOTO = "/photos/beyond-special.jpg"; // drop the real photo here; falls back to a placeholder
-const FALLBACK = "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=80";
+const PHOTO = "/photos/beyond-special.webp";
 
 /** The house signature, given the full-width treatment. */
 export default function Signature() {
@@ -52,10 +50,11 @@ export default function Signature() {
           transition={{ type: "spring", stiffness: 120, damping: 16 }}
           className="relative order-1 aspect-[4/5] overflow-hidden rounded-[32px] border-4 border-ink shadow-hard md:order-2"
         >
-          <Photo
+          <img
             src={PHOTO}
-            fallback={FALLBACK}
-            alt="The Beyond Special: chicken burger with fries and dips"
+            alt="The Beyond Special spread: burger, loaded fries, shake and pizza"
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover"
           />
           <figcaption className="absolute bottom-4 left-4 rotate-[-4deg] rounded-md border-2 border-ink bg-yellow px-3 py-1 font-display text-lg font-extrabold text-ink shadow-hard-sm">
